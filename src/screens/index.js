@@ -1,0 +1,7 @@
+export { default as Home } from './Home'
+export { default as Register } from './Register'
+export { default as Login } from './Login'
+export { default as PhoneCode } from './PhoneCode'
+export { default as Question } from './Question'
+export { default as Video } from './Video'
+export { default as Testing } from './Testing'
