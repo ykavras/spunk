@@ -1,8 +1,5 @@
 # Spunk
 
-A social media app prototype
+Spunk uygulamasının gizlilik politikası, kullanım koşulları, çerez politikası ve yardım sayfaları (TR/EN).
 
-
-clean cache:
-
-```watchman watch-del-all && rm -rf node_modules/ && yarn cache clean && yarn install```
+Bu sayfalar spunk-mobile-app reposundaki `scripts/build-site.mjs` ile `src/legal.ts` dosyasından üretilir; buradaki dosyaları elle düzenleme, yeniden üretip gönder.
