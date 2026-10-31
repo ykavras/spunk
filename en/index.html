@@ -4,45 +4,122 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Spunk · Watch. Predict. Win.</title>
+<meta name="description" content="Call the outcome at the key moment of sports and creator videos, earn gems and turn them into rewards. Free.">
+<meta property="og:title" content="Spunk · Watch. Predict. Win.">
+<meta property="og:description" content="Call the outcome at the key moment of sports and creator videos, earn gems and turn them into rewards. Free.">
+<meta name="theme-color" content="#0a0b0d">
 <link rel="icon" href="../icon.png">
+<link rel="alternate" hreflang="tr" href="../tr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Red+Hat+Display:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Red+Hat+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root { --bg: #0a0b0d; --fg: #fff; --fg2: rgba(255,255,255,.72); --fg3: rgba(255,255,255,.5); --line: rgba(255,255,255,.1); --lime: #c1f80f; }
+:root { --bg: #0a0b0d; --card: rgba(255,255,255,.05); --fg: #fff; --fg2: rgba(255,255,255,.72); --fg3: rgba(255,255,255,.5); --line: rgba(255,255,255,.1); --lime: #c1f80f; --blue: #2a36df; --violet: #6c3cf4; }
 * { box-sizing: border-box; }
-body { margin: 0; background: var(--bg) radial-gradient(60% 40% at 0% 0%, rgba(42,47,216,.45), transparent 70%) no-repeat; color: var(--fg); font: 16px/1.6 'Red Hat Display', system-ui, sans-serif; }
-main { max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
-.logo { font: 900 32px/1 'Big Shoulders Display', sans-serif; color: var(--lime); text-decoration: none; letter-spacing: .02em; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 'Red Hat Display', system-ui, sans-serif; overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(55% 40% at 0% 0%, rgba(42,54,223,.55), transparent 70%), radial-gradient(45% 35% at 100% 10%, rgba(120,150,10,.35), transparent 70%); }
 a { color: var(--lime); }
-nav a, .lang { color: var(--fg2); text-decoration: none; font-weight: 600; }
-h1 { font-size: 32px; line-height: 1.2; font-weight: 800; margin: 0 0 8px; }
-h2 { font-size: 18px; font-weight: 800; margin: 32px 0 6px; }
-p { color: var(--fg2); margin: 0; }
-.muted { color: var(--fg3); font-size: 14px; }
-.intro { color: var(--fg); margin-top: 16px; }
-.hero { text-align: center; padding: 24px 0 8px; }
-.hero img { width: 96px; height: 96px; border-radius: 22px; }
-.hero h1 { font-size: 40px; margin-top: 20px; }
-.links { list-style: none; padding: 0; margin: 40px 0 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-.links li + li { border-top: 1px solid var(--line); }
-.links a { display: block; padding: 16px 18px; color: var(--fg); text-decoration: none; font-weight: 600; }
-.mail { display: inline-block; margin-top: 32px; padding: 14px 20px; border-radius: 14px; background: var(--lime); color: #0a0b0d; font-weight: 800; text-decoration: none; }
-footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--fg3); font-size: 13px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); background: rgba(10,11,13,.6); border-bottom: 1px solid var(--line); }
+header .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+.logo { display: flex; align-items: center; font: 900 30px/1 'Big Shoulders Display', sans-serif; color: var(--lime); text-decoration: none; letter-spacing: .02em; }
+.logo img { height: 30px; display: block; }
+nav { margin-left: auto; display: flex; gap: 22px; align-items: center; }
+nav a { color: var(--fg2); text-decoration: none; font-weight: 600; font-size: 15px; }
+nav a:hover { color: var(--fg); }
+nav .lang { border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; }
+@media (max-width: 700px) { nav a:not(.lang) { display: none; } }
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; padding: 72px 0 40px; }
+@media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 40px; } }
+.kicker { display: inline-block; padding: 6px 12px; border-radius: 999px; background: rgba(193,248,15,.12); color: var(--lime); font-weight: 700; font-size: 14px; }
+h1 { font-size: clamp(48px, 8vw, 88px); line-height: .98; font-weight: 800; letter-spacing: -.03em; margin: 20px 0 20px; }
+h1 span { display: block; }
+h1 span:nth-child(2) { color: var(--lime); }
+.sub { color: var(--fg2); font-size: 19px; max-width: 520px; margin: 0; }
+.stores { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.store { display: flex; flex-direction: column; padding: 10px 18px; border-radius: 14px; border: 1px solid var(--line); background: var(--card); min-width: 150px; }
+.store small { color: var(--fg3); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
+.store b { font-size: 18px; }
+.phones { position: relative; height: 620px; }
+.phones img { position: absolute; width: 270px; border-radius: 38px; border: 1px solid rgba(193,248,15,.35); box-shadow: 0 30px 80px rgba(0,0,0,.55); }
+.phones img:first-child { left: 8%; top: 40px; transform: rotate(-6deg); opacity: .9; }
+.phones img:last-child { right: 8%; top: 0; }
+@media (max-width: 860px) { .phones { height: 520px; max-width: 420px; width: 100%; margin: 0 auto; } .phones img { width: 220px; } }
+@media (max-width: 420px) { .phones { height: 440px; } .phones img { width: 180px; border-radius: 28px; } }
+section { padding: 64px 0; }
+h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.1; font-weight: 800; letter-spacing: -.02em; margin: 0 0 28px; }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 900px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 24px; }
+.num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--lime); color: #0a0b0d; font-weight: 800; }
+.card h3 { font-size: 20px; margin: 16px 0 6px; }
+.card p { color: var(--fg2); margin: 0; }
+.card a { display: inline-block; margin-top: 14px; font-weight: 700; text-decoration: none; }
+.gallery { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
+.gallery figure { flex: 0 0 240px; margin: 0; scroll-snap-align: start; }
+.gallery img { width: 100%; border-radius: 30px; border: 1px solid var(--line); display: block; }
+.gallery figcaption { color: var(--fg2); font-weight: 600; margin-top: 12px; }
+.trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 860px) { .trust { grid-template-columns: 1fr; } }
+.cta { text-align: center; border-radius: 28px; padding: 56px 24px; background: linear-gradient(135deg, var(--blue), #1b2399 55%, var(--violet)); }
+.cta h2 { margin-bottom: 10px; }
+.cta p { color: rgba(255,255,255,.85); margin: 0; font-size: 18px; }
+.mail { display: inline-block; margin-top: 28px; padding: 14px 22px; border-radius: 14px; background: var(--lime); color: #0a0b0d; font-weight: 800; text-decoration: none; }
+footer { border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--fg3); font-size: 14px; }
+footer .cols { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 20px; }
+footer a { color: var(--fg2); text-decoration: none; font-weight: 600; }
+.doc { max-width: 760px; padding: 48px 16px 24px; margin: 0 auto; }
+.doc h1 { font-size: clamp(34px, 6vw, 48px); margin: 0 0 8px; }
+.doc h2 { font-size: 20px; margin: 36px 0 8px; letter-spacing: 0; }
+.doc p { color: var(--fg2); margin: 0; }
+.doc .muted { color: var(--fg3); font-size: 14px; }
+.doc .intro { color: var(--fg); font-size: 18px; margin-top: 18px; }
+.doc .links { list-style: none; padding: 0; margin: 48px 0 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.doc .links li + li { border-top: 1px solid var(--line); }
+.doc .links a { display: block; padding: 16px 18px; color: var(--fg); text-decoration: none; font-weight: 600; }
 </style>
 </head>
 <body>
-<main>
-<header><a class="logo" href="./">SPUNK</a><a class="lang" href="../tr/">Türkçe</a></header>
-<section class="hero">
-<img src="../icon.png" alt="Spunk">
-<h1>Watch. Predict. Win.</h1>
-<p>Call the outcome of moments in creators’ videos, earn gems and turn them into rewards. Free to play.</p>
-<p class="muted" style="margin-top:12px">Coming soon to the App Store and Google Play.</p>
-</section>
-<ul class="links"><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li><li><a href="cookies.html">Cookie Policy</a></li><li><a href="help.html">Help Center</a></li></ul>
-<footer>© 2026 Albert Medya Yazılım ve Dijital Yayıncılık Hizmetleri A.Ş.</footer>
+<header><div class="wrap">
+<a class="logo" href="./"><img src="../logo.png" alt="Spunk"></a>
+<nav><a href="./#how">How it works</a><a href="./#safety">Safety</a><a href="help.html">Help</a><a class="lang" href="../tr/">Türkçe</a></nav>
+</div></header>
+<main class="wrap">
+<div class="hero">
+  <div>
+    <span class="kicker">Free to play · No real money</span>
+    <h1><span>Watch.</span><span>Predict.</span><span>Win.</span></h1>
+    <p class="sub">Spunk streams short sports and creator videos; you call the outcome before the key moment. Get it right, earn gems and turn them into rewards.</p>
+    <div class="stores"><div class="store"><small>Coming soon</small><b>App Store</b></div><div class="store"><small>Coming soon</small><b>Google Play</b></div></div>
+  </div>
+  <div class="phones"><img src="../img/en/1_home.jpg" alt="Today’s hottest predictions" loading="lazy"><img src="../img/en/2_play.jpg" alt="Watch, catch the moment, predict" loading="lazy"></div>
+</div>
+<section id="how"><h2>How it works</h2><div class="steps">
+<div class="card"><span class="num">1</span><h3>Watch</h3><p>Videos roll one after another in Play. A shot, a goal, a dunk: the moment is coming.</p></div>
+<div class="card"><span class="num">2</span><h3>Predict</h3><p>Pick one of two answers before the moment hits. You get one pick per prediction.</p></div>
+<div class="card"><span class="num">3</span><h3>Earn gems</h3><p>When the result is in and you got it right, gems land in your account. Daily streaks and tasks pay too.</p></div>
+<div class="card"><span class="num">4</span><h3>Get rewards</h3><p>Turn your gems into discount codes, digital rewards and Spunk merch in the Store.</p></div>
+</div></section>
+<section><h2>Inside the app</h2><div class="gallery">
+<figure><img src="../img/en/1_home.jpg" alt="Today’s hottest predictions" loading="lazy"><figcaption>Today’s hottest predictions</figcaption></figure>
+<figure><img src="../img/en/2_play.jpg" alt="Watch, catch the moment, predict" loading="lazy"><figcaption>Watch, catch the moment, predict</figcaption></figure>
+<figure><img src="../img/en/3_predictions.jpg" alt="All your predictions in one place" loading="lazy"><figcaption>All your predictions in one place</figcaption></figure>
+<figure><img src="../img/en/4_tasks.jpg" alt="Come back daily, grow your reward" loading="lazy"><figcaption>Come back daily, grow your reward</figcaption></figure>
+<figure><img src="../img/en/5_store.jpg" alt="Turn your gems into rewards" loading="lazy"><figcaption>Turn your gems into rewards</figcaption></figure>
+</div></section>
+<section id="safety"><h2>Clear and safe</h2><div class="trust">
+<div class="card"><h3>No real money</h3><p>Spunk is a free prediction game. No betting, gambling or cash prizes, and gems can’t be bought.</p><a href="terms.html">Terms of use →</a></div>
+<div class="card"><h3>Your data stays yours</h3><p>We don’t sell your data or share it for ads. We spell out what we process and why.</p><a href="privacy.html">Privacy policy →</a></div>
+<div class="card"><h3>Delete any time</h3><p>Delete your account in the app with one tap or by email; all your personal data is deleted.</p><a href="delete-account.html">Account deletion →</a></div>
+</div></section>
+<section><div class="cta"><h2>Don’t miss the next moment.</h2><p>Spunk is coming soon to the App Store and Google Play.</p></div></section>
 </main>
+<footer><div class="wrap">
+<div class="cols"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="cookies.html">Cookie Policy</a><a href="help.html">Help Center</a><a href="delete-account.html">Account and Data Deletion</a></div>
+© 2026 Albert Medya Yazılım ve Dijital Yayıncılık Hizmetleri A.Ş.
+</div></footer>
 </body>
 </html>
